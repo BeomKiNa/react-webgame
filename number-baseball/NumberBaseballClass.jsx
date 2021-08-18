@@ -38,9 +38,9 @@ class NumberBaseballClass extends Component {
     const { value, answer, tries } = this.state;
     e.preventDefault();
     if (
-      value.length < 4 ||
+      value.length !== 4 ||
       value.includes(0) ||
-      Array.from(new Set(value)).length < 4
+      Array.from(new Set(value)).length !== 4
     ) {
       alert("0을 제외한 서로 다른 4개의 숫자를 입력해야합니다");
       this.setState({ value: "" });
@@ -49,9 +49,11 @@ class NumberBaseballClass extends Component {
     }
 
     if (value === answer.join("")) {
-      this.setState({
-        result: "홈런!",
-        tries: [...tries, { try: value, result: "홈런!" }],
+      this.setState((prevState) => {
+        return {
+          result: "홈런!",
+          tries: [...prevState.tries, { try: value, result: "홈런!" }],
+        };
       });
       this.restart();
     } else {
@@ -72,16 +74,18 @@ class NumberBaseballClass extends Component {
           }
         }
 
-        this.setState({
-          result: `${strike} 스트라이크 ${ball} 볼`,
-          value: "",
-          tries: [
-            ...tries,
-            {
-              try: value,
-              result: `${strike} 스트라이크 ${ball} 볼`,
-            },
-          ],
+        this.setState((prevState) => {
+          return {
+            result: `${strike} 스트라이크 ${ball} 볼`,
+            value: "",
+            tries: [
+              ...prevState.tries,
+              {
+                try: value,
+                result: `${strike} 스트라이크 ${ball} 볼`,
+              },
+            ],
+          };
         });
       }
     }
@@ -89,7 +93,6 @@ class NumberBaseballClass extends Component {
   };
 
   onChangeInput = (e) => {
-    if (this.state.value.length >= 4) return;
     this.setState({ value: e.target.value });
   };
 
