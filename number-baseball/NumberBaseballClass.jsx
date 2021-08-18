@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, createRef } from "react";
 import TryClass from "./TryClass";
 
 function getNumbers() {
@@ -44,7 +44,7 @@ class NumberBaseballClass extends PureComponent {
     ) {
       alert("0을 제외한 서로 다른 4개의 숫자를 입력해야합니다");
       this.setState({ value: "" });
-      this.input.focus();
+      this.inputRef.current.focus();
       return;
     }
 
@@ -89,18 +89,14 @@ class NumberBaseballClass extends PureComponent {
         });
       }
     }
-    this.input.focus();
+    this.inputRef.current.focus();
   };
 
   onChangeInput = (e) => {
     this.setState({ value: e.target.value });
   };
 
-  input;
-
-  inputRef = (c) => {
-    this.input = c;
-  };
+  inputRef = createRef();
 
   render() {
     const { result, value, tries } = this.state;
