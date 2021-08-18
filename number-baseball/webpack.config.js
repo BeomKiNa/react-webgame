@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const RefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+// process.env.NODE_ENV = "production" // 배포할때 환경변수도 변경해야 함
 
 module.exports = {
   mode: "development",
