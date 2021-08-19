@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+#box {
+  width: 500px;
+  height: 500px;
+  padding: 10px;
+  text-align: center;
+}
+
+.wating {
+  background: skyblue;
+}
+
+.ready {
+  background: red;
+  color: white;
+}
+
+.start {
+  background: lightgreen;
+}
