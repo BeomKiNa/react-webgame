@@ -1,4 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import LottoClass from "./LottoClass";
 
-ReactDOM.render(<div>lotto</div>, document.querySelector("#root"));
+ReactDOM.render(
+  <>
+    <LottoClass />
+  </>,
+  document.querySelector("#root")
+);
