@@ -1,4 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import TicTacToeFunction from "./TicTacToeFunction";
 
-ReactDOM.render(<>tictactoe</>, document.querySelector("#root"));
+ReactDOM.render(
+  <>
+    <TicTacToeFunction />
+  </>,
+  document.querySelector("#root")
+);
