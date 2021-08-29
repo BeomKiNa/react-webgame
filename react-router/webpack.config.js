@@ -44,6 +44,7 @@ module.exports = {
   devServer: {
     hot: true,
     open: true,
+    historyApiFallback: true, // react-router 새로고침할 때 페이지를 가져오기 못하는 Cannot get ~ 상황을 위해서 추가 HashRouter는 이 문제가 발생하지 않음
     publicPath: "/dist/",
   },
 };
