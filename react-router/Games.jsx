@@ -38,11 +38,13 @@ const Games = () => {
         <Route path="/lotto" component={LottoClass}></Route> */}
         {/* <Route path="/game/:name" component={GameMatcher}></Route> */}
         <Switch>
+          {/* 첫번째 일치하는 Route를 렌더링 */}
           <Route
             path="/"
             exact
             render={(props) => <GameMatcher {...props} />}
           ></Route>
+          {/* 상위주소와 하위주소가 같이있는 경우 상위주소만 렌더링 하므로 exact로 주소가 정확히 일치하는 경우에만 렌더링 하도록 */}
           <Route
             path="/game/:name"
             render={(props) => <GameMatcher {...props} />}
